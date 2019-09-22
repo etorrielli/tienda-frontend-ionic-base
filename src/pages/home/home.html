@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button *ngIf="usrProvider.logueado();" (click)="usrProvider.cerrarSesion();">
+      Salir
+    </button>
+    </ion-buttons>
+
+    <ion-title>
+      SuperTienda
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="carProvider.verCarrito();">
+        <ion-icon name="cart"></ion-icon>
+        <ion-badge color=danger>
+            {{carProvider.items.length}}
+          </ion-badge>
+      </button>
+
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row *ngFor="let item of proProvider.productos" [navPush]="producto" [navParams]="item">
+      <ion-col col-12>
+        <img [src]="item.codigo | imagen" alt="">
+      </ion-col>
+      <p>
+        {{item.producto}}
+        <br> {{item.precioCompra}}
+      </p>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

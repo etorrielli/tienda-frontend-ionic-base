@@ -1,0 +1,20 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>producto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <img [src]="producto.codigo | imagen" circle>
+    <h1>{{producto.producto}}</h1>
+    <p>{{producto.precioCompra}}</p>
+
+    <button ion-button
+            block
+            (click)="carProvider.agregarCarrito(producto)">
+              Agregar al carrito
+            </button>
+</ion-content>

@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button (click)="viewCtrl.dismiss();">
+      Cerrar
+    </button>
+    </ion-buttons>
+
+
+    <ion-title>login</ion-title>
+
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label fixed>Correo</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="correo"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="pass"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button block
+          [disabled]="correo.length < 3 || pass.length < 3"
+          (click)="ingresarLogin();">
+    Ingresar
+  </button>
+</ion-content>
